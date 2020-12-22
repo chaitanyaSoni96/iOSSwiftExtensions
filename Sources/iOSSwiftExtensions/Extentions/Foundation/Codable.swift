@@ -9,14 +9,14 @@
 import Foundation
 
 @available(iOS 11.0, *)
-extension NSObject {
+public extension NSObject {
     var className: String {
         self.description.components(separatedBy: ["<",":",">"])[1]
     }
 }
 
 @available(iOS 11.0, *)
-extension Encodable {
+public extension Encodable {
     
     var dictionary: [String: Any]? {
       guard let data = try? JSONEncoder().encode(self) else { return nil }

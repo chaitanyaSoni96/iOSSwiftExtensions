@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 @available(iOS 11.0, *)
-extension UIAlertController {
+public extension UIAlertController {
 
     //var appDelegate = UIApplication.shared.delegate as! AppDelegate
 

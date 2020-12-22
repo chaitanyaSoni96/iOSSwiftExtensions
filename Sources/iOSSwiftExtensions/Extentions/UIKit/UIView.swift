@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 @available(iOS 11.0, *)
-extension UIView {
+public extension UIView {
 
     /**
      Usage-
@@ -19,7 +19,7 @@ extension UIView {
      NSLayoutConstraint.activate(constraints)
      self.view.layoutIfNeeded()
      **/
-    func constraintsForAnchoringTo(boundsOf superView: UIView) -> [NSLayoutConstraint] {
+	func constraintsForAnchoringTo(boundsOf superView: UIView) -> [NSLayoutConstraint] {
         return [
             self.topAnchor.constraint(equalTo: superView.safeAreaLayoutGuide.topAnchor),
             self.leftAnchor.constraint(equalTo: superView.safeAreaLayoutGuide.leftAnchor),

@@ -10,7 +10,7 @@ import Foundation
 
 
 @available(iOS 11.0, *)
-extension Date {
+public extension Date {
 	
 	func stringWithFormat(format: String) -> String {
 		let dateFormatter = DateFormatter()

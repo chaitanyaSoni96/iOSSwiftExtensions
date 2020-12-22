@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Nibbed: UIView, NibLoadable {
+public class Nibbed: UIView, NibLoadable {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupFromNib()

@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-enum BarButtonItemPosition {
+public enum BarButtonItemPosition {
     case left
     case right
 }
 
 @available(iOS 11.0, *)
-extension UINavigationController {
+public extension UINavigationController {
     func setTransparent() {
         self.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationBar.shadowImage = UIImage()

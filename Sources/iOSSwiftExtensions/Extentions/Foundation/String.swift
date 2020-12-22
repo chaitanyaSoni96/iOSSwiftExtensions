@@ -9,19 +9,19 @@
 import Foundation
 
 @available(iOS 11.0, *)
-extension String {
-    @inlinable public var isntEmpty: Bool { return !isEmpty }
+public extension String {
+	@inlinable var isntEmpty: Bool { return !isEmpty }
     
-    public var isValidEmail: Bool {
+	var isValidEmail: Bool {
         let regex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: self)
     }
-    public var isValidPhone: Bool {
+	var isValidPhone: Bool {
 //        let regex = "^09[0-9'@s]{9,9}$"
         let regex = "^[6-9][0-9]{9}$"
         return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: self)
     }
-    public var isPhoneNumber: Bool {
+	var isPhoneNumber: Bool {
 
 //        let charcter  = NSCharacterSet(charactersIn: "+0123456789").inverted
         let set = CharacterSet(charactersIn: "+0123456789").inverted
@@ -31,7 +31,7 @@ extension String {
         return  self == filtered
 
     }
-    public func toDateString(format: String) -> String {
+	func toDateString(format: String) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = format
         formatter.locale = Locale(identifier: "en_US_POSIX")

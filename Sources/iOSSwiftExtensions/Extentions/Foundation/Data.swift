@@ -9,7 +9,7 @@
 import Foundation
 
 @available(iOS 11.0, *)
-extension Data {
+public extension Data {
     func pruned(dropFirstSpaceChar shouldDropFirst: Bool = false) -> Data? {
         let data = self
         var responseString = String(data: data, encoding: .utf8) ?? ""

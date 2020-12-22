@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 @available(iOS 11.0, *)
-extension UIImageView {
+public extension UIImageView {
     func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {  // for swift 4.2 syntax just use ===> mode: UIView.ContentMode
         contentMode = mode
         URLSession.shared.dataTask(with: url) { data, response, error in

@@ -10,6 +10,6 @@ import Foundation
 import UIKit
 
 @available(iOS 11.0, *)
-extension UITextField {
+public extension UITextField {
 	var textOrEmpty: String { self.text ?? "" }
 }

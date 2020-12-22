@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 @available(iOS 11.0, *)
-extension UIFont {
+public extension UIFont {
     class var title: UIFont {
         return UIFont.preferredFont(forTextStyle: .title3)
     }

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 @available(iOS 11.0, *)
-extension UIColor {
+public extension UIColor {
     
     class var eventColor1: UIColor {
         return UIColor.blue

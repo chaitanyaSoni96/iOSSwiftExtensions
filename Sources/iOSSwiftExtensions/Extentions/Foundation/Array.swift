@@ -9,7 +9,7 @@
 import Foundation
 
 @available(iOS 11.0, *)
-extension Array where Element: Hashable {
+public extension Array where Element: Hashable {
 
     func next(item: Element) -> Element? {
         if let index = self.firstIndex(of: item), index + 1 <= self.count {

@@ -10,7 +10,7 @@ import Foundation
 // random number generator
 
 @available(iOS 11.0, *)
-extension Int {
+public extension Int {
     init(_ range: Range<Int> ) {
         let delta = range.startIndex < 0 ? abs(range.startIndex) : 0
         let min = UInt32(range.startIndex + delta)

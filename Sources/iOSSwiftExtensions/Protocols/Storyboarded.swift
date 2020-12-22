@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol Storyboarded {
+public protocol Storyboarded {
     static func instantiate() -> Self
     static var storyBoardName: String { get }
 }

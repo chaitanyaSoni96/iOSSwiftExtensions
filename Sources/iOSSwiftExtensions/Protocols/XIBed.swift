@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol XIBed {
+public protocol XIBed {
     static func instantiate() -> Self
 }
 

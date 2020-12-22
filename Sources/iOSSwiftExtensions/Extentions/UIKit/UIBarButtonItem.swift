@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 @available(iOS 11.0, *)
-extension UIBarButtonItem {
+public extension UIBarButtonItem {
     func setSize(width: CGFloat, height: CGFloat) {
         let widthContraint = self.customView?.widthAnchor.constraint(equalToConstant: width)
         widthContraint?.isActive = true
