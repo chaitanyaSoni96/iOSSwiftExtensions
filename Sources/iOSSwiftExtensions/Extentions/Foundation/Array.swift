@@ -3,7 +3,7 @@
 //  VPM
 //
 //  Created by Chaitanya Soni on 28/09/20.
-//  Copyright © 2020 appic. All rights reserved.
+//  Copyright © 2020 Chaitanya Soni. All rights reserved.
 //
 
 import Foundation
