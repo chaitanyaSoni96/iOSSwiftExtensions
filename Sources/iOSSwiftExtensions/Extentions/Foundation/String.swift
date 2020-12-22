@@ -54,25 +54,15 @@ extension String {
             return formatter2.string(from: date ?? Date())//date
         }
 		
-		func convertToDictionary() -> [String: Any]? {
-			if let data = self.data(using: .utf8) {
-				do {
-					return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-				} catch {
-					print(error.localizedDescription)
-				}
-			}
-			return nil
-		}
 	}
-//    func convertToDictionary() -> [String: Any]? {
-//        if let data = self.data(using: .utf8) {
-//            do {
-//                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-//            } catch {
-//                print(error.localizedDescription)
-//            }
-//        }
-//        return nil
-//    }
+    func convertToDictionary() -> [String: Any]? {
+        if let data = self.data(using: .utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return nil
+    }
 }

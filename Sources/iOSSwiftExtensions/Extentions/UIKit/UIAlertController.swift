@@ -23,8 +23,8 @@ extension UIAlertController {
             viewController!.present(alertController, animated: true, completion: nil)
 
         } else {
-			let window = (UIApplication.shared.delegate as! AppDelegate).window
-			let vc = window?.rootViewController?.presentedViewController ?? window?.rootViewController
+			let window = UIApplication.shared.delegate?.window
+			let vc = window??.rootViewController?.presentedViewController ?? window??.rootViewController
             vc?.present(alertController, animated: true, completion: nil)
         }
 
