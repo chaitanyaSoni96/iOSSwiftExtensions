@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+@available(iOS 11.0, *)
 extension UICollectionView {
 	func register(_ nibs: (nib: UINib, forSupplementaryViewOfKind: String, withReuseIdentifier: String)...) {
 		nibs.forEach {

@@ -14,6 +14,7 @@ enum BarButtonItemPosition {
     case right
 }
 
+@available(iOS 11.0, *)
 extension UINavigationController {
     func setTransparent() {
         self.navigationBar.setBackgroundImage(UIImage(), for: .default)

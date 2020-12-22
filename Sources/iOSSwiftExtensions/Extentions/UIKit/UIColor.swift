@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+@available(iOS 11.0, *)
 extension UIColor {
     
     class var eventColor1: UIColor {

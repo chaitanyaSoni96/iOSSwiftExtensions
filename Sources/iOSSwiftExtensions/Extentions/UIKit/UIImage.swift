@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+@available(iOS 11.0, *)
 extension UIImage {
     func rotate(radians: Float) -> UIImage? {
         var newSize = CGRect(origin: CGPoint.zero, size: self.size).applying(CGAffineTransform(rotationAngle: CGFloat(radians))).size

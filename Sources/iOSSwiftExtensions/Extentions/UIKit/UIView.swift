@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+@available(iOS 11.0, *)
 extension UIView {
 
     /**
