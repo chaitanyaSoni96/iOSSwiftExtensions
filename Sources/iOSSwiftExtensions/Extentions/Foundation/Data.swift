@@ -8,6 +8,7 @@
 
 import Foundation
 
+@available(iOS 11.0, *)
 extension Data {
     func pruned(dropFirstSpaceChar shouldDropFirst: Bool = false) -> Data? {
         let data = self

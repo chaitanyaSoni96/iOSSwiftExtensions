@@ -8,6 +8,7 @@
 
 import Foundation
 
+@available(iOS 11.0, *)
 extension Array where Element: Hashable {
 
     func next(item: Element) -> Element? {

@@ -9,6 +9,7 @@
 import Foundation
 
 
+@available(iOS 11.0, *)
 extension Date {
 	
 	func stringWithFormat(format: String) -> String {
