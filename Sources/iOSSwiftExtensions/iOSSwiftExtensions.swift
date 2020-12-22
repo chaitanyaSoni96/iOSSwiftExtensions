@@ -1,3 +1,3 @@
-struct iOSSwiftExtensions {
-    var text = "Hello, World!"
-}
+//struct iOSSwiftExtensions {
+//    var text = "Hello, World!"
+//}
