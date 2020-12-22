@@ -13,7 +13,7 @@ public protocol XIBed {
     static func instantiate() -> Self
 }
 
-extension XIBed where Self: UIViewController {
+public extension XIBed where Self: UIViewController {
     static func instantiate() -> Self {
         return Self(nibName: String(describing: self), bundle: Bundle.main)
     }
