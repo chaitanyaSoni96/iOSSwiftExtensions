@@ -15,6 +15,6 @@ public protocol XIBed {
 
 public extension XIBed where Self: UIViewController {
     static func instantiate() -> Self {
-        return Self(nibName: String(describing: self), bundle: Bundle.main)
+		return Self(nibName: String(describing: self), bundle: Bundle(for: Self.self))
     }
 }

@@ -24,4 +24,8 @@ public extension Array where Element: Hashable {
         }
         return nil
     }
+	func uniqued() -> [Element] {
+		var seen = Set<Element>()
+		return filter{ seen.insert($0).inserted }
+	}
 }

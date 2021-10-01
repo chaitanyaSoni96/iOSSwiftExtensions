@@ -13,6 +13,7 @@ public class Nibbed: UIView, NibLoadable {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupFromNib()
+        setStyle()
     }
 
     override init(frame: CGRect) {
@@ -42,6 +43,8 @@ public extension NibLoadable where Self: UIView {
 
     func setupFromNib() {
         guard let view = Self.nib.instantiate(withOwner: self, options: nil).first as? UIView else { fatalError("Error loading \(self) from nib") }
+		view.backgroundColor = .clear
+		view.clipsToBounds = true
         addSubview(view)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true

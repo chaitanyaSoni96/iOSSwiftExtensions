@@ -48,7 +48,15 @@ public extension Encodable {
         }
         return headerC
     }
-    
+    static func from<T: Codable>(_ string: String) -> T? {
+        
+        guard let jsonData = string.data(using: .utf8),
+        //                        headerCodable = try JSONSerialization.jsonObject(with: jsonData, options: []) as! Header
+            let headerC = try? JSONDecoder().decode(T.self, from: jsonData) else {
+                return nil
+        }
+        return headerC
+    }
 //    static func rawData() -> DBCache? {
 //        let realm = Realm.safeInstance()
 //        let cache = realm.objects(DBCache.self)

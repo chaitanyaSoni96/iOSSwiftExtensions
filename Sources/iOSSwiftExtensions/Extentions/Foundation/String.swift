@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 @available(iOS 11.0, *)
 public extension String {
@@ -64,5 +65,106 @@ public extension String {
             }
         }
         return nil
+    }
+}
+
+extension String {
+
+    mutating func attributedString(fontsize : Int) -> NSAttributedString
+    {
+        if self.contains(".") {
+            if self.suffix(2).contains(".") {
+                self.append("00")
+            } else if self.suffix(3).contains(".") {
+                self.append("0")
+            }
+        } else {
+           self.append(".000")
+        }
+        
+        let amt = self.count - 3
+        let unit = self.prefix(3)
+        let secondWord = self.suffix(amt)
+        //let amount = secondWord.prefix(amt-4)
+        let decimal = secondWord.suffix(3)
+        
+        let attributedText = NSMutableAttributedString(string: self)
+        let attrs      = [NSAttributedString.Key.font:UIFont.systemFont(ofSize: CGFloat(fontsize))]
+        let attrs1      = [NSAttributedString.Key.font:UIFont.systemFont(ofSize: CGFloat(fontsize))]
+        let range = NSString(string: self).range(of: String(unit))
+        let range2 = NSString(string: self).range(of: String(decimal))
+        
+        attributedText.addAttributes(attrs, range: range)
+        attributedText.addAttributes(attrs1, range: range2)
+        return attributedText
+    }
+}
+extension String {
+    func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+    
+        return ceil(boundingBox.height)
+    }
+
+    func width(withConstrainedHeight height: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+
+        return ceil(boundingBox.width)
+    }
+}
+extension String {
+    // MARK - Parse into NSDate
+    
+    func dateFromFormat(_ format: String) -> Date? {
+        let formatter = DateFormatter()
+//        formatter.locale = Locale.autoupdatingCurrent
+        formatter.locale = Locale(identifier: "en")
+        formatter.calendar = Calendar.autoupdatingCurrent
+        formatter.dateFormat = format
+        return formatter.date(from: self)
+    }
+}
+
+// "Montserrat-Medium"
+public extension String {
+    
+    func maskedPhoneNumber() -> String {
+        
+        let characters = Array(self)
+        var tempAry = [Character]()
+        
+        for i in 0..<characters.count {
+            
+            if i >= characters.count - 4 {
+                tempAry.append(characters[i])
+            } else {
+                tempAry.append("X")
+            }
+        }
+        let str = String(tempAry)
+        
+        return str
+    }
+    
+    func setAmount(pointSize: CGFloat) -> NSMutableAttributedString {
+        // guard let appFont = SalesSDK.appFont else { return }
+        
+        let amountBeforeDot = (self.components(separatedBy: ".").first ?? "") + "."
+        var amountAfterDot: String = self.components(separatedBy: ".").last ?? ""
+        
+        if self.components(separatedBy: ".").count <= 1 {
+           amountAfterDot = "00"
+        }
+        let rs = "₹ "
+        let attributedString = NSMutableAttributedString(string: rs,
+                                                         attributes: [NSAttributedString.Key.font : UIFont(name: "Montserrat-Regular", size: pointSize - 5) ?? UIFont.systemFont(ofSize: pointSize - 5)])
+        attributedString.append(NSAttributedString(string: amountBeforeDot,
+                                                   attributes: [NSAttributedString.Key.font : UIFont(name: "Montserrat-Medium", size: pointSize) ?? UIFont.systemFont(ofSize: pointSize)]))
+        attributedString.append(NSAttributedString(string: amountAfterDot,
+                                                   attributes: [NSAttributedString.Key.font : UIFont(name: "Montserrat-Regular", size: pointSize - 5) ?? UIFont.systemFont(ofSize: pointSize - 5)]))
+        
+       return attributedString
     }
 }

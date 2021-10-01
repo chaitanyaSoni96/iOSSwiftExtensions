@@ -23,7 +23,7 @@ import UIKit
 }*/
 
 @available(iOS 11.0, *)
-extension CACornerMask: OptionSet {
+extension CACornerMask {
     public static var topLeft: CACornerMask     = .layerMinXMinYCorner//{ get }
     public static var topRight: CACornerMask    = .layerMaxXMinYCorner //{ get }
     public static var bottomLeft: CACornerMask  = .layerMinXMaxYCorner //{ get }
